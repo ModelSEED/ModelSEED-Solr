@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Schema for Fusion -->
+<schema name="Fusion" version="1.5">
+	<fields>
+		<field name="gene"		type="string_ci"		indexed="true"	stored="true"/>
+		<field name="length"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="function"	type="string_ci"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="divide"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="score"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="left"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="right"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="overlap"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="left_sg"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="right_sg"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="overlap_sg"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="matches"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="best_left"	type="float"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="best_right"	type="float"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="best_left_align"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="best_right_align"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="left_links"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="right_links"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="set_count"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="text"		type="text_custom"	indexed="true"	stored="false"	multiValued="true" />
+		<field name="_version_"		type="long"		indexed="true"	stored="true" />
+	</fields>
+
+	<uniqueKey>gene</uniqueKey>
+
+	<solrQueryParser defaultOperator="AND"/>
+
+	<copyField source="gene" dest="text"/>
+	<copyField source="function" dest="text"/>
+
+	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:fallback></xi:fallback>
+	</xi:include>
+</schema>

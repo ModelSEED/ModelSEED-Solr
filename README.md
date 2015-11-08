@@ -8,7 +8,7 @@ The configuration currently requires a custom SOLR build, `solr-5.3.0-PATRIC.tgz
 
 ### Development
 
-Install `SOLR-5.3.0`:
+Install `solr-5.3.0-PATRIC`:
 
 ```
 tar -xvf solr-5.3.0-PATRIC.tgz
@@ -17,14 +17,13 @@ tar -xvf solr-5.3.0-PATRIC.tgz
 Clone this repo (anywhere you'd like):
 
 ```
-cd solr-5.3.0-PATRIC
 git clone https://github.com/ModelSEED/ModelSEED-Solr.git 
 ```
 
-Start the server with the full path to to the clone repo:
+Start the server with the full path to the cloned repo:
 
 ```
-./bin/solr start -Dsolr.solr.home=/Users/../solr-5.3.0-PATRIC/ModelSEED-Solr -Dlucene.version=5.3.0
+./bin/solr start -Dsolr.solr.home=/Users/../ModelSEED-Solr -Dlucene.version=5.3.0
 ```
 
 You can stop the server with `stop`, or restart the server with `restart`.

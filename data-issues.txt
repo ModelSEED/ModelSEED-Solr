@@ -1,21 +1,23 @@
 
 ## SOLR-CDDTable.txt:
 
-Remove blank line (line 2)
-Change first "genes" column to "gene_count".
+- Remove blank line (line 2)
+- Change first "genes" column to "gene_count".
 
 
 ## SOLR-FusionTable.txt:
 
 - sanitize header 
-- there are two "functions" and two "lengths")
+- here are two "functions" and two "lengths".
+    * Use "Function.  
+    * Use smaller of "length" and "Length".
 
-Can be fixed with:
+### Can be fixed with:
 
 ./columns.js --file ../../test-data/SOLR-FusionsTable.txt  --fix-header gene,length,function,divide,score,left,right,overlap,left_sg,right_sg,overlap_sg,matches,best_left,best_right,best_left_align,best_right_align,left_links,right_links,set_count,contig_function,contig_length,contig,direction,start,stop,species,sequence,cdds > ../../test-data/corrected-fusions.txt
 
 - there are 5000+ rows that don't have an entry for the column sequence
 
-Can be fixed with: 
+### Can be fixed with: 
 
 ./columns.js --file ../../test-data/SOLR-FusionsTable.txt  --insert-at-column 26 --insert-value=no_sequence > ../../test-data/corrected-fusions.txt

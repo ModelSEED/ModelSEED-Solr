@@ -1,8 +1,8 @@
 #!/usr/bin/env node
+
 var fs = require('fs'),
     util = require('util'),
     readline = require('readline');
-
 
 var opts = require('commander');
 
@@ -49,8 +49,7 @@ if (opts.fixHeader) {
         if (lineNumber === 0) {
             header = line.split('\t');
 
-            // if header is supplied, use it.
-            // otherwise use suggested
+            // use default suggested header if none supplied
             if (opts.fixHeader === true)
                 suggestedHeader = getSuggestedHeader(header);
             else
@@ -81,6 +80,7 @@ if (opts.fixHeader) {
 
     rl.on('line', function (line) {
 
+        // print info on header
         if (lineNumber === 0) {
             header = line.split('\t');
             suggestedHeader = getSuggestedHeader(header);
@@ -93,6 +93,7 @@ if (opts.fixHeader) {
             }
         }
 
+        // if line is supplied, only print info on that line
         if (opts.line && opts.line == lineNumber) {
             var cols = line.split('\t');
 
@@ -104,6 +105,7 @@ if (opts.fixHeader) {
             process.exit(0);
         }
 
+        // if --debug, print any issues with columns to stdout
         if (opts.debug) {
             var cols = line.split('\t');
 
@@ -113,6 +115,7 @@ if (opts.fixHeader) {
         }
 
 
+        // if inserting something print issues to stdout, 
         if (opts.insertValue) {
             var cols = line.split('\t');
 
@@ -132,6 +135,9 @@ if (opts.fixHeader) {
     });
 }
 
+
+// Default for suggested header.  
+// --fix-header will use this if a comma-delimited list is not provided.
 function getSuggestedHeader(header) {
     var suggestedHeader = [];
     for (var i=0; i<header.length; i++) {

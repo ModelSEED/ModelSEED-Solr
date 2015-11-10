@@ -2,7 +2,7 @@
 
 <schema name="fusions" version="1.5">
 	<fields>
-		<field name="gene"		type="string"	indexed="true"	stored="true"/>
+		<field name="gene"		type="string_ci"	indexed="true"	stored="true"/>
 		<field name="length"	type="int"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="function"	type="string_ci"		indexed="true"	stored="true"	docValues="true"/>
 		<field name="divide"	type="int"	indexed="true"	stored="true"	docValues="true"/>
@@ -32,7 +32,7 @@
 		<field name="cdds"	type="string"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
 
 		<field name="text"		type="text_custom"	indexed="true"	stored="false"	multiValued="true" />
-		<field name="_version_"		type="long"		indexed="true"	stored="true" />		
+		<field name="_version_"		type="long"		indexed="true"	stored="true" />
 	</fields>
 
 	<uniqueKey>gene</uniqueKey>

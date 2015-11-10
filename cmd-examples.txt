@@ -14,5 +14,6 @@ The loading of fusion data goes something like this:
 
 ./bin/post -c fusion-cdd-sets -params "separator=%09" -type text/csv test-data/SOLR-CDDSets.txt
 
+***PROBLEMATIC****  ./bin/post -c fusions -params "separator=%09&f.cdds.split=true&f.cdds.separator=%3B" -type text/csv test-data/smaller-fusions.txt
 
-***PROBLEM****  ./bin/post -c fusions -params "separator=%09&f.cdds.split=true&f.cdds.separator=%3B" -type text/csv test-data/SOLR-FusionsTable.txt 
+./bin/post -c fusion-subsystems -params "separator=%09" -type text/csv test-data/SOLR-SubsystemTable.txt

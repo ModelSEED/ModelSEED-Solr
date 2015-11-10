@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Schema for fusion-cdd -->
+<!-- id	accession	name	length	genes	fullgenes	is_full_gene	longgenes	description	set	genes -->
+<schema name="fusion-cdd" version="1.5">
+	<fields>
+		<field name="id"		type="int"		indexed="true"	stored="true"/>
+		<field name="accession"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="name"	type="string_ci"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="length"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="gene_count"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="fullgenes"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="is_full_gene"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="longgenes"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="description"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="set"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="genes"	type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+
+
+		<field name="text"		type="text_custom"	indexed="true"	stored="false"	multiValued="true" />
+		<field name="_version_"		type="long"		indexed="true"	stored="true" />
+	</fields>
+
+	<uniqueKey>id</uniqueKey>
+
+	<solrQueryParser defaultOperator="AND"/>
+
+	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:fallback></xi:fallback>
+	</xi:include>
+</schema>

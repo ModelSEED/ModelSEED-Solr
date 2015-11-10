@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Schema for Fusion -->
+<!--id	name	genes	genes_with_cdds	total_cdd_hits	genes_with_nonoverlapping_cdds	full_genes_cdd_hits	genes_with_nonoverlapping_full_gene_cdds	final_predicted_fusions	fraction_final_fusion_predictions	dna-size	contigs	complete	domain	gc-content	taxonomy	md5	rnas	genetic-code-->
+<schema name="Fusion" version="1.5">
+	<fields>
+		<field name="id"	type="string"	indexed="true"	stored="true"/>
+		<field name="name"	type="string"	indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="genes"	type="int"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="genes_with_cdds"	type="int"	indexed="true"	stored="true"	docValues="true"	required="false"/>
+		<field name="total_cdd_hits"	type="int"	indexed="true"	stored="true"	docValues="true"	required="false"/>
+		<field name="genes_with_nonoverlapping_cdds"	type="int"	indexed="true"	stored="true"	docValues="true"	required="false"/>
+		<field name="full_genes_cdd_hits"	type="int"	indexed="true"	stored="true"	docValues="true"	required="false"/>
+		<field name="genes_with_nonoverlapping_full_gene_cdds"	type="int"	indexed="true"	stored="true"	docValues="true"	required="false"/>
+		<field name="final_predicted_fusions"	type="int"	indexed="true"	stored="true"	docValues="true"	required="false"/>
+		<field name="fraction_final_fusion_predictions"	type="float"	indexed="true"	stored="true"	docValues="true"	required="false"/>
+
+		<field name="dna-size"	type="float"	indexed="true"	stored="true"	docValues="true"	required="false"/>
+		<field name="contigs"	type="int"	indexed="true"	stored="true"	docValues="true"	required="false"/>
+		<field name="complete"	type="int"	indexed="true"	stored="true"	docValues="true"	required="false"/>
+		<field name="domain"	type="string"	indexed="true"	stored="true"	docValues="true"	required="false"/>
+		<field name="gc-content"	type="float"	indexed="true"	stored="true"	docValues="true"	required="false"/>
+		<field name="taxonomy"	type="string"	indexed="true"	stored="true"	docValues="true"	multiValued="true"	required="false"/>
+		<field name="md5"	type="string"	indexed="true"	stored="true"	docValues="true"	required="false"/>
+		<field name="rnas"	type="int"	indexed="true"	stored="true"	docValues="true"	required="false"/>
+		<field name="genetic-code"	type="int"	indexed="true"	stored="true"	docValues="true"	required="false"/>
+
+		<field name="text"		type="text_custom"	indexed="true"	stored="false"	multiValued="true" />
+		<field name="_version_"		type="long"		indexed="true"	stored="true" />
+	</fields>
+
+	<uniqueKey>id</uniqueKey>
+
+	<solrQueryParser defaultOperator="AND"/>
+
+	<!--<copyField source="id" dest="text"/>
+	<copyField source="name" dest="text"/>-->
+
+	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:fallback></xi:fallback>
+	</xi:include>
+</schema>

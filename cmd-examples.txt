@@ -1,0 +1,18 @@
+
+
+## Loading data
+
+The loading of fusion data goes something like this: 
+
+./bin/post -c fusion-cdd -params "separator=%09&f.genes.split=true&f.genes.separator=%3B" -type text/csv test-data/SOLR-CDDTable.txt
+
+./bin/post -c fusion-genome-stats -params "separator=%09&f.taxonomy.split=true&f.taxonomy.separator=%2C" -type text/csv test-data/SOLR-GenomeStats.txt 
+
+./bin/post -c fusion-reactions -params "separator=%09&f.genes.split=true&f.genes.separator=%3B" -type text/csv test-data/SOLR-ReactionsTable.txt
+
+./bin/post -c fusion-roles -params "separator=%09" -type text/csv test-data/SOLR-RoleTable.txt
+
+./bin/post -c fusion-cdd-sets -params "separator=%09" -type text/csv test-data/SOLR-CDDSets.txt
+
+
+***PROBLEM****  ./bin/post -c fusions -params "separator=%09&f.cdds.split=true&f.cdds.separator=%3B" -type text/csv test-data/SOLR-FusionsTable.txt 

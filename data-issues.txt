@@ -1,0 +1,13 @@
+
+## SOLR-CDDTable.txt:
+
+Remove blank line
+Change first "genes" column to "gene_count".
+
+
+## SOLR-CDDTable.txt:
+
+Change header to:  `gene	length	function	divide	score	left	right	overlap	left sg	right sg	overlap sg	matches	best left	best right	best left align	best right align	left links	right links	set count	function	length	contig	direction	start	stop	species	sequence	cdds`
+
+
+

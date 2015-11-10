@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Schema for fusion-reactions -->
+<!-- reaction	direction	equation	active	essential	active_models	essential_models	active_side_pathways	essential_side_pathways	average_essential_flux	average_active_flux	damage_prone_reactants	role_count	max_genomes	max_genome_role	max_fusions	max_fusion_role	max_fusion_fraction	max_fusion_fraction_role	is_complex	is_transport	models	deltaG	is_essential	is_active	frequently_fused	hypothesized_reason_for_fusion-->
+<schema name="fusion-reactions" version="1.5">
+	<fields>
+		<field name="reaction"		type="string"		indexed="true"	stored="true"/>
+		<field name="direction"	type="string"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="equation"	type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="active"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="essential"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="active_models"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="essential_models"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="active_side_pathways"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="essential_side_pathways"	type="float"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="average_essential_flux"	type="float"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="average_active_flux"	type="float"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="damage_prone_reactants"	type="float"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="role_count"	type="float"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="max_genomes"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="max_genome_role"	type="string"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="max_fusions"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="max_fusion_role"	type="string"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="max_fusion_fraction"	type="float"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="max_fusion_fraction_role"	type="string"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="is_complex"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="is_transport"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="models"	type="string"	indexed="true"	stored="true"	docValues="true"/>				
+		<field name="deltaG"	type="float"	indexed="true"	stored="true"	docValues="true"/>	
+		<field name="is_essential"	type="int"	indexed="true"	stored="true"	docValues="true"/>					
+		<field name="is_active"	type="int"	indexed="true"	stored="true"	docValues="true"/>					
+		<field name="frequently_fused"	type="int"	indexed="true"	stored="true"	docValues="true"/>			
+		<field name="hypothesized_reason_for_fusion"	type="string"	indexed="true"	stored="true"	docValues="true"/>				
+										
+
+		<field name="text"		type="text_custom"	indexed="true"	stored="false"	multiValued="true" />
+		<field name="_version_"		type="long"		indexed="true"	stored="true" />
+	</fields>
+
+	<uniqueKey>reaction</uniqueKey>
+
+	<solrQueryParser defaultOperator="AND"/>
+
+	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:fallback></xi:fallback>
+	</xi:include>
+</schema>

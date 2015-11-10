@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<schema name="fusion-subsystems" version="1.5">
+	<fields>
+		<field name="subsystem"	type="string_ci"	indexed="true"	stored="true"/>
+		<field name="class_one"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="class_two"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="function_count"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="frequently_fused_function_count"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="fraction_fusions"	type="float"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="fused_function_genome_count"	type="float"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="function_genome_count"	type="float"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="fraction_genomes_with_fusions"	type="float"	indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="text"		type="text_custom"	indexed="true"	stored="false"	multiValued="true" />
+		<field name="_version_"		type="long"		indexed="true"	stored="true" />
+	</fields>
+
+	<uniqueKey>subsystem</uniqueKey>
+
+	<solrQueryParser defaultOperator="AND"/>
+
+
+	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:fallback></xi:fallback>
+	</xi:include>
+</schema>

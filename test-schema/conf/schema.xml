@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<schema name="test-schema" version="1.5">
+	<fields>
+		<field name="aaaaaaa"	type="string"	indexed="true"	stored="true"/>
+		<field name="bbbbbbb"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="ccccccc"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="ddddddd"	type="float"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="eeeeeee"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="fffffff"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="ggggggg"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="hhhhhhh"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="iiiiiii"	type="string"	indexed="true"	stored="true"	docValues="true"  multiValued="true"/>
+
+		<field name="text"		type="text_custom"	indexed="true"	stored="false"	multiValued="true" />
+		<field name="_version_"		type="long"		indexed="true"	stored="true" />
+	</fields>
+
+	<uniqueKey>aaaaaaa</uniqueKey>
+
+	<solrQueryParser defaultOperator="AND"/>
+
+
+	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:fallback></xi:fallback>
+	</xi:include>
+</schema>

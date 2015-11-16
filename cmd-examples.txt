@@ -17,3 +17,6 @@ The loading of fusion data goes something like this:
 ***PROBLEMATIC****  ./bin/post -c fusions -params "separator=%09&f.cdds.split=true&f.cdds.separator=%3B" -type text/csv test-data/smaller-fusions.txt
 
 ./bin/post -c fusion-subsystems -params "separator=%09" -type text/csv test-data/SOLR-SubsystemTable.txt
+
+
+

@@ -8,11 +8,12 @@ var opts = require('commander');
 
 opts.version('0.0.1')
     .option('-f, --file [value]', 'File to parse')
-    .option('-l, --line [value]', 'Line number to examine')
+    .option('-l, --line [value]', 'Examine file at line number.  Prints fields and values vertically and other stats.')
     .option('-d, --debug', 'Debug mode, writing problematic rows to stdout')
     .option('-i, --insert-at-column [value]', 'Insert after the specified column for problematic rows')
     .option('-value, --insert-value [value]', 'Value to insert at line of "--insert-at"')
     .option('-h, --fix-header [value]', 'Write file with recommended header')
+    .option('-s, --split [value]', 'Split file into smaller files ingnoring ')    
     .parse(process.argv);
 
 
@@ -51,9 +52,9 @@ if (opts.fixHeader) {
 
             // use default suggested header if none supplied
             if (opts.fixHeader === true)
-                suggestedHeader = getSuggestedHeader(header);
+                var suggestedHeader = getSuggestedHeader(header);
             else
-                suggestedHeader = opts.fixHeader.split(',')
+                var suggestedHeader = opts.fixHeader.split(',')
 
             // write new header
             console.log(suggestedHeader.join('\t'))
@@ -69,6 +70,48 @@ if (opts.fixHeader) {
         console.error('\n\x1b[36m'+'Replaced header with:'+'\x1b[0m', suggestedHeader.join('\t'));
     });
 
+} else if (opts.split) {
+    console.error('\n\x1b[36m'+'Spliting file into rows of:'+'\x1b[0m', opts.split);
+
+    var lineNumber = 0;
+    var header;
+
+    var rl = readline.createInterface({
+        terminal: false,
+        input: fs.createReadStream(opts.file)
+    });
+
+    rl.on('line', function (line) {
+        if (lineNumber === 0) {
+            header = line.split('\t');
+
+            // use default suggested header if a comma-separated list is not supplied
+            // otherwise, use list            
+            if (opts.fixHeader && opts.fixHeader === true)
+                var suggestedHeader = getSuggestedHeader(header);
+            else if (opts.fixHeader)
+                var suggestedHeader = opts.fixHeader.split(',');
+            else 
+                var suggestedHeader = line.split('\t');
+
+            // write new header
+            console.log(suggestedHeader.join('\t'))
+        } else {
+            // write file stream line
+            console.log(line)
+        }
+
+        if (lineNumber > opts.split - 1) {
+            console.error('****Stoping at line', lineNumber);
+            rl.pause(); rl.close()
+            process.exit(0);            
+        }
+        lineNumber += 1;
+    });
+
+    rl.on('close', function (line) {
+        console.error('\n\x1b[36m'+'Split files.'+'\x1b[0m');
+    });
 } else {
     var lineNumber = 0;
     var header;

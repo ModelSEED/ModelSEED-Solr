@@ -14,6 +14,7 @@
 		<field name="description"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="set"	type="int"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="genes"	type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+		<field name="set_name"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>		
 
 
 		<field name="text"		type="text_custom"	indexed="true"	stored="false"	multiValued="true" />

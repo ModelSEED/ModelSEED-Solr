@@ -24,7 +24,7 @@
         <field name="is_complex"	type="int"	indexed="true"	stored="true"	docValues="true"/>
         <field name="is_transport"	type="int"	indexed="true"	stored="true"	docValues="true"/>
         <field name="models"	type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true" />
-        <field name="deltaG"	type="string"	indexed="true"	stored="true"	docValues="true"/>
+        <field name="deltaG"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
         <field name="is_essential"	type="int"	indexed="true"	stored="true"	docValues="true"/>
         <field name="is_active"	type="int"	indexed="true"	stored="true"	docValues="true"/>
         <field name="frequently_fused"	type="int"	indexed="true"	stored="true"	docValues="true"/>

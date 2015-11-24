@@ -3,8 +3,8 @@
 <!--id	name	genes	genes_with_cdds	total_cdd_hits	genes_with_nonoverlapping_cdds	full_genes_cdd_hits	genes_with_nonoverlapping_full_gene_cdds	final_predicted_fusions	fraction_final_fusion_predictions	dna-size	contigs	complete	domain	gc-content	taxonomy	md5	rnas	genetic-code-->
 <schema name="Fusion" version="1.5">
 	<fields>
-		<field name="id"	type="string"	indexed="true"	stored="true"/>
-		<field name="name"	type="string"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="id"	type="string_ci"	indexed="true"	stored="true"/>
+		<field name="name"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
 
 		<field name="genes"	type="int"		indexed="true"	stored="true"	docValues="true"/>
 		<field name="genes_with_cdds"	type="int"	indexed="true"	stored="true"	docValues="true"	required="false"/>
@@ -18,10 +18,10 @@
 		<field name="dna-size"	type="float"	indexed="true"	stored="true"	docValues="true"	required="false"/>
 		<field name="contigs"	type="int"	indexed="true"	stored="true"	docValues="true"	required="false"/>
 		<field name="complete"	type="int"	indexed="true"	stored="true"	docValues="true"	required="false"/>
-		<field name="domain"	type="string"	indexed="true"	stored="true"	docValues="true"	required="false"/>
+		<field name="domain"	type="string_ci"	indexed="true"	stored="true"	docValues="true"	required="false"/>
 		<field name="gc-content"	type="float"	indexed="true"	stored="true"	docValues="true"	required="false"/>
-		<field name="taxonomy"	type="string"	indexed="true"	stored="true"	docValues="true"	multiValued="true"	required="false"/>
-		<field name="md5"	type="string"	indexed="true"	stored="true"	docValues="true"	required="false"/>
+		<field name="taxonomy"	type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"	required="false"/>
+		<field name="md5"	type="string_ci"	indexed="true"	stored="true"	docValues="true"	required="false"/>
 		<field name="rnas"	type="int"	indexed="true"	stored="true"	docValues="true"	required="false"/>
 		<field name="genetic-code"	type="int"	indexed="true"	stored="true"	docValues="true"	required="false"/>
 

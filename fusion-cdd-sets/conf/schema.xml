@@ -2,19 +2,19 @@
 
 <schema name="fusion-cdd-sets" version="1.5">
 	<fields>
-		<field name="id"	type="int"	indexed="true"	stored="true"/>
+		<field name="id"	type="string_ci"	indexed="true"	stored="true"/>
 		<field name="accession"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="name"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="length"	type="int"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="genes"	type="int"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="fullgenes"	type="int"	indexed="true"	stored="true"	docValues="true"/>
-		<field name="is_full_gene"	type="string"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="is_full_gene"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="longgenes"	type="int"	indexed="true"	stored="true"	docValues="true"/>
-		<field name="description"	type="string"	indexed="true"	stored="true"	docValues="true"/>
-		<field name="cdds"	type="string"	indexed="true"	stored="true"	docValues="true"/>
-		<field name="cddlist"	type="string"	indexed="true"	stored="true"	docValues="true" />
-		<field name="links"	type="string"	indexed="true"	stored="true"	docValues="true" />
-		<field name="linkedsets"	type="string"	indexed="true"	stored="true"	docValues="true"  multiValued="true"/>
+		<field name="description"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="cdds"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="cddlist"	type="string_ci"	indexed="true"	stored="true"	docValues="true" />
+		<field name="links"	type="string_ci"	indexed="true"	stored="true"	docValues="true" />
+		<field name="linkedsets"	type="string_ci"	indexed="true"	stored="true"	docValues="true"  multiValued="true"/>
 										
 
 		<field name="text"		type="text_custom"	indexed="true"	stored="false"	multiValued="true" />

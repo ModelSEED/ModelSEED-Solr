@@ -2,7 +2,7 @@
 
 <schema name="fusion-roles" version="1.5">
 	<fields>
-		<field name="role"		type="string"		indexed="true"	stored="true"/>
+		<field name="role"		type="string_ci"		indexed="true"	stored="true"/>
 		<field name="count"	type="int"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="genome_cout"	type="int"		indexed="true"	stored="true"	docValues="true"/>
 		<field name="fusion_count"	type="int"	indexed="true"	stored="true"	docValues="true"/>
@@ -10,9 +10,9 @@
 		<field name="fraction_of_genes_fused"	type="float"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="fraction_of_genomes_fused"	type="float"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="score"	type="float"	indexed="true"	stored="true"	docValues="true"/>		
-		<field name="subsystem"	type="string"	indexed="true"	stored="true"	docValues="true"/>		
-		<field name="class_one"	type="string"	indexed="true"	stored="true"	docValues="true"/>
-		<field name="class_two"	type="string"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="subsystem"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>		
+		<field name="class_one"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="class_two"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="frequently_fused_function_count"	type="int"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="frequently_fused_function_genomes"	type="float"	indexed="true"	stored="true"	docValues="true"/>
 

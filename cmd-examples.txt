@@ -18,7 +18,7 @@ The loading of fusion data goes something like this:
 
 (loaded) ./bin/post -c fusion-subsystems -params "separator=%09" -type text/csv test-data/SOLR-SubsystemTable.txt
 
-(loaded) ./bin/post -c fusion-training -params "separator=%09" -type text/csv test-data/SOLR-Training.txt
+(loaded) ./bin/post -c fusion-training -params "separator=%09" -type text/csv test-data/SOLR-TrainingTable.txt
 
 
 

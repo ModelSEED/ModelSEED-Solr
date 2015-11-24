@@ -1,4 +1,5 @@
 <types>
+	<fieldType name="text" class="solr.TextField" sortMissingLast="true" />	
 	<fieldType name="string" class="solr.StrField" sortMissingLast="true" />
 	<fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
 	<fieldType name="int" class="solr.TrieIntField" precisionStep="0" positionIncrementGap="0"/>

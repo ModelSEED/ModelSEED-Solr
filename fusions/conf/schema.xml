@@ -19,7 +19,7 @@
 		<field name="left_links"	type="int"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="right_links"	type="int"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="set_count"	type="int"	indexed="true"	stored="true"	docValues="true"/>
-		<field name="contig_function"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="function"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="length"	type="int"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="contig"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="direction"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
@@ -37,8 +37,8 @@
 
 	<solrQueryParser defaultOperator="AND"/>
 
-	<copyField source="gene" dest="text"/>
-	<copyField source="function" dest="text"/>	
+	<!--<copyField source="gene" dest="text"/>
+	<copyField source="function" dest="text"/>-->
 
 
 	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">

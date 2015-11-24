@@ -109,9 +109,16 @@ if (opts.fixHeader) {
         if (opts.debug) {
             var cols = line.split('\t');
 
+            console.log(cols[0])
+            //console.log( cols.length, header.length)
+
             if (cols.length !== header.length)
                 console.log('\x1b[36m'+'At line:', lineNumber, ': unmatching columns of length',
                               cols.length, 'and', header.length,'\x1b[0m:', line);
+
+
+            if (cols[0] === '')
+                console.log('\x1b[36m'+'At line:', lineNumber, ': first entry is blank, may be a problem if id','\x1b[0m:', line);            
         }
 
 

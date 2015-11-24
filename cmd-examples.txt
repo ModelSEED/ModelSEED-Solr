@@ -4,19 +4,21 @@
 
 The loading of fusion data goes something like this: 
 
-./bin/post -c fusion-cdd -params "separator=%09&f.genes.split=true&f.genes.separator=%3B" -type text/csv test-data/SOLR-CDDTable.txt
+(loaded; missing rows) ./bin/post -c fusion-cdd -params "separator=%09&f.genes.split=true&f.genes.separator=%3B" -type text/csv test-data/SOLR-CDDTable.txt
 
-./bin/post -c fusion-genome-stats -params "separator=%09&f.taxonomy.split=true&f.taxonomy.separator=%2C" -type text/csv test-data/SOLR-GenomeStats.txt 
+(loaded) ./bin/post -c fusion-cdd-sets -params "separator=%09" -type text/csv test-data/SOLR-CDDSets.txt
 
-./bin/post -c fusion-reactions -params "separator=%09&f.models.split=true&f.models.separator=%7C" -type text/csv test-data/SOLR-ReactionsTable.txt
+(loaded) ./bin/post -c fusion-genome-stats -params "separator=%09&f.taxonomy.split=true&f.taxonomy.separator=%2C" -type text/csv test-data/SOLR-GenomeStats.txt 
 
-(done) ./bin/post -c fusion-roles -params "separator=%09" -type text/csv test-data/SOLR-RoleTable.txt
+(loaded) ./bin/post -c fusion-reactions -params "separator=%09&f.models.split=true&f.models.separator=%7C" -type text/csv test-data/SOLR-ReactionsTable.txt
 
-./bin/post -c fusion-cdd-sets -params "separator=%09" -type text/csv test-data/SOLR-CDDSets.txt
+(loaded) ./bin/post -c fusion-roles -params "separator=%09" -type text/csv test-data/SOLR-RoleTable.txt
 
-***PROBLEMATIC****  ./bin/post -c fusions -params "separator=%09&f.cdds.split=true&f.cdds.separator=%3B" -type text/csv test-data/smaller-fusions.txt
+(loaded; missing rows) ./bin/post -c fusions -params "separator=%09&f.cdds.split=true&f.cdds.separator=%3B" -type text/csv test-data/smaller-fusions.txt
 
-./bin/post -c fusion-subsystems -params "separator=%09" -type text/csv test-data/SOLR-SubsystemTable.txt
+(loaded) ./bin/post -c fusion-subsystems -params "separator=%09" -type text/csv test-data/SOLR-SubsystemTable.txt
+
+(loaded) ./bin/post -c fusion-training -params "separator=%09" -type text/csv test-data/SOLR-Training.txt
 
 
 

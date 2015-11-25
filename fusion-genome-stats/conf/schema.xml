@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- Schema for Fusion -->
-<!--id	name	genes	genes_with_cdds	total_cdd_hits	genes_with_nonoverlapping_cdds	full_genes_cdd_hits	genes_with_nonoverlapping_full_gene_cdds	final_predicted_fusions	fraction_final_fusion_predictions	dna-size	contigs	complete	domain	gc-content	taxonomy	md5	rnas	genetic-code-->
-<schema name="Fusion" version="1.5">
+<schema name="genome-stats" version="1.5">
 	<fields>
 		<field name="id"	type="string_ci"	indexed="true"	stored="true"/>
 		<field name="name"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>

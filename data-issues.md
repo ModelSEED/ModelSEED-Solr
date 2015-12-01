@@ -101,9 +101,30 @@ COMMITting Solr index changes to http://localhost:8983/solr/fusions/update?separ
 Time spent: 0:03:26.586
 
 
-In ~/solr-data/SOLR-CDDTable-1.txt:
+Issue was that there are quotes in that line:
 
-nconrad@branch:~/solr-data2$ /opt/solr/bin/post -c fusion-cdd -params "separator=%09&f.genes.split=true&f.genes.separator=%3B&f.set.keepEmpty=false" -type text/csv ~/solr-data/SOLR-CDDTable-1.txt 
+
+nconrad@branch:~/solr-data2$ ../modelseed-solr/utils/columns.js --file SOLR-FusionsTable-6.txt --line 178020
+
+```
+...
+set_count:     4
+function:     "phi-Carotenoid synthase" (EC 1.3.-.- and EC 2.1.1-)
+length:     1875
+...
+```
+
+
+sed -n -e 1p -e 2,178020p SOLR-FusionsTable-6.txt > SOLR-foobar1.txt
+sed -n -e 1p -e 178020,600000p SOLR-FusionsTable-6.txt > SOLR-foobar2.txt
+
+(and remove quotes)
+
+
+
+In ~/solr-data/SOLR-CDDTable-3.txt:
+
+nconrad@branch:~/solr-data2$ /opt/solr/bin/post -c fusion-cdd -params "separator=%09&f.genes.split=true&f.genes.separator=%3B&" -type text/csv ~/solr-data2/SOLR-CDDTable-1.txt 
 java -classpath /opt/solr/dist/solr-core-5.3.0-PATRIC.jar -Dauto=yes -Dparams=separator=%09&f.genes.split=true&f.genes.separator=%3B&f.set.keepEmpty=false -Dtype=text/csv -Dc=fusion-cdd -Ddata=files org.apache.solr.util.SimplePostTool /homes/nconrad/solr-data/SOLR-CDDTable-1.txt
 SimplePostTool version 5.0.0
 Posting files to [base] url http://localhost:8983/solr/fusion-cdd/update?separator=%09&f.genes.split=true&f.genes.separator=%3B&f.set.keepEmpty=false...
@@ -129,4 +150,26 @@ POSTing file SOLR-CDDTable-2.txt (text/csv) to [base]
 COMMITting Solr index changes to http://localhost:8983/solr/fusion-cdd/update?separator=%09&f.genes.split=true&f.genes.separator=%3B&f.set.keepEmpty=false...
 Time spent: 0:14:31.458
 
+(replaced quotes with "'")
 
+
+nconrad@branch:~/solr-data2$ /opt/solr/bin/post -c fusion-cdd -params "separator=%09&f.genes.split=true&f.genes.separator=%3B&f.set.keepEmpty=false" -type text/csv ~/solr-data/SOLR-CDDTable-3.txt
+java -classpath /opt/solr/dist/solr-core-5.3.0-PATRIC.jar -Dauto=yes -Dparams=separator=%09&f.genes.split=true&f.genes.separator=%3B&f.set.keepEmpty=false -Dtype=text/csv -Dc=fusion-cdd -Ddata=files org.apache.solr.util.SimplePostTool /homes/nconrad/solr-data/SOLR-CDDTable-3.txt
+SimplePostTool version 5.0.0
+Posting files to [base] url http://localhost:8983/solr/fusion-cdd/update?separator=%09&f.genes.split=true&f.genes.separator=%3B&f.set.keepEmpty=false...
+Entering auto mode. File endings considered are xml,json,csv,pdf,doc,docx,ppt,pptx,xls,xlsx,odt,odp,ods,ott,otp,ots,rtf,htm,html,txt,log
+POSTing file SOLR-CDDTable-3.txt (text/csv) to [base]
+SimplePostTool: WARNING: Solr returned an error #400 (Bad Request) for url: http://localhost:8983/solr/fusion-cdd/update?separator=%09&f.genes.split=true&f.genes.separator=%3B&f.set.keepEmpty=false
+SimplePostTool: WARNING: Response: <?xml version="1.0" encoding="UTF-8"?>
+<response>
+<lst name="responseHeader"><int name="status">400</int><int name="QTime">346420</int></lst><lst name="error"><str name="msg">CSVLoader: input=null, line=4372,can't read line: 4372
+	values={NO LINES AVAILABLE}</str><int name="code">400</int></lst>
+</response>
+SimplePostTool: WARNING: IOException while reading response: java.io.IOException: Server returned HTTP response code: 400 for URL: http://localhost:8983/solr/fusion-cdd/update?separator=%09&f.genes.split=true&f.genes.separator=%3B&f.set.keepEmpty=false
+1 files indexed.
+COMMITting Solr index changes to http://localhost:8983/solr/fusion-cdd/update?separator=%09&f.genes.split=true&f.genes.separator=%3B&f.set.keepEmpty=false...
+Time spent: 0:05:54.167
+
+
+
+(replaced quotes with "'")
